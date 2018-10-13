@@ -2,9 +2,33 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.9/esri/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://js.arcgis.com/4.9/"></script>
     <title>typeform-geocoding</title>
   </head>
   <body>
-    Hello World!
+    <h1>Where are people going?</h1>
+    <div id="viewDiv"></div>
+    <script>
+      require([
+        "esri/Map",
+        "esri/views/MapView"
+      ], function(Map, MapView) {
+        // Code to create the map and view will go here
+        var map = new Map({
+          basemap: "streets"
+        });
+
+        var view = new MapView({
+          container: "viewDiv",  // Reference to the DOM node that will contain the view
+          map: map,               // References the map object created in step 3
+          zoom: 4,  // Sets zoom level based on level of detail (LOD)
+          center: [15, 54]  // Sets center point of view using longitude,latitude
+        });
+      });
+    </script>
   </body>
 </html>
