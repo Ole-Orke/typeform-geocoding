@@ -47,10 +47,10 @@ app.get("/test", (req, res) => {
   });
 
   locs.forEach((loc) => {
-    // axios.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + loc.split(" ").join("+") + "&key=" + process.env.GOOGLE_API_KEY)
-    //   .then((error, response) => {
-    //     console.log(error);
-    //   });
+    axios.get("http://www.mapquestapi.com/geocoding/v1/address?key=KV0TLvGxDWzgBUcHhDgIYK349ZYo25iZ&location=" + loc.split(" ").join("+"))
+      .then((error, response) => {
+        console.log(error);
+      });
     console.log(loc);
   });
   res.status(200).json({
